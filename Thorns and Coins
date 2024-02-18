@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+ 
+#define Stoic ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define el "\n"
+#define ll long long
+#define ld long double
+#define posmod(v, m) ((v)%(m)+(m))%(m)
+ 
+using namespace std;
+ 
+void BodaAbdallah() {
+    ll cnt = 0, n, strcnt;
+    cin >> n;
+    string S;
+    cin >> S;
+    strcnt = n - 1;
+    for (int i = 0; i < n; i++) {
+        if (S[i] == S[i - 1] && S[i] == '*') {
+            strcnt = i;
+            break;
+        }
+    }
+    for (int i = 0; i <= strcnt; i++) {
+        if (S[i] == '@')
+            cnt++;
+    }
+    cout << cnt << el;
+ 
+}
+ 
+int main() {
+    Stoic;
+    ll q = 1;
+    cin >> q;
+    while (q--) {
+        BodaAbdallah();
+    }
+    return 0;
+}
+ 
