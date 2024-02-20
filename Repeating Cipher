@@ -1,0 +1,67 @@
+#include<bits/stdc++.h>
+
+
+#define     ll                              long long int
+#define     pb                              push_back
+#define     mp                              make_pair
+#define     all(x)                          x.begin(),x.end()
+#define     rall(x)                         x.rbegin(), x.rend()
+#define     sz(x)                           (int)x.size()
+#define     vi                              vector<int>
+#define     vb                              vector<bool>
+#define     vs                              vector<string>
+#define     vl                              vector<ll>
+#define     si                              set<int>
+#define     sl                              set<ll>
+#define     ip                              pair<int,int>
+#define     lp                              pair<ll,ll>
+#define     ips                             pair<string,int>
+#define     lps                             pair<string,ll>
+#define     ipc                             pair<char,int>
+#define     lpc                             pair<char,ll>
+#define     vip                             vector<ip>
+#define     PQ                              priority_queue
+#define     vlp                             vector<lp>
+#define     hashmap                         unordered_map
+#define     msi                             multiset<int>
+#define     msl                             multiset<ll>
+#define     spb                             insert
+#define     erase_duplicates(x)             x.erase(unique(all(x)),x.end());
+#define     all_0(x)                        memset(x,0,sizeof(x))
+#define     all_neg(x)                      memset(x,-1,sizeof(x))
+#define     all_1(x)                        memset(x,1,sizeof(x))
+#define     Faster                          ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
+using namespace std;
+
+
+
+void solve(void)
+{
+    int n;
+    string b;
+    cin>>n;
+    cin>>b;
+    char a[10000], k=0;
+    int j=1;
+    for(int i=0; i<n;)
+    {
+        a[k]=b[i];
+        i=i+j;
+        j++;
+        k++;
+    }
+    for(int i=0; i<k; i++)
+    {
+        cout<<a[i];
+    }
+
+}
+
+
+int main()
+{
+    Faster
+    solve();
+}
+
