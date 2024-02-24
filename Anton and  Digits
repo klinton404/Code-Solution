@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+
+#define all(x) x.begin(), x.end()
+#define all_g(x) x.rbegin(), x.rend()
+#define Faster ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
+using namespace std;
+
+using ll = long long;
+const int N = 1e5 + 10;
+
+void solve()
+{
+    ll two, three, five, six;
+    cin>>two >>three >>five >>six;
+    int count_256 = min(two, min(five,six));
+    int count_32 = min((two-count_256),three);
+
+    cout<< 256*count_256 + 32*count_32 <<"\n";
+}
+
+
+int main()
+{
+    Faster
+    solve();
+    return 0;
+}
