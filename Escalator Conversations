@@ -1,0 +1,55 @@
+#include<bits/stdc++.h>
+
+#define all(x) x.begin(), x.end()
+#define all_g(x) x.rbegin(), x.rend()
+#define Faster ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
+using namespace std;
+
+using ll = long long;
+const int N = 1e5 + 10;
+
+void solve()
+{
+    ll n,m,k,h;
+    cin>>n>>m>>k>>h;
+
+    vector<ll> a(n);
+    for(int i=0; i<n; i++)
+    {
+        cin>>a[i];
+    }
+
+    int ans=0;
+    for(int i=0; i<n; i++)
+    {
+        bool ok=false;
+        for(ll x=1; x<=m; x++)
+        {
+            for(ll y=x+1LL; y<=m; y++)
+            {
+                if(x==y)continue;
+                ll h_Diff=abs(a[i]-h);
+                ll xy_Diff=y-x;
+                xy_Diff*=k;
+                ok|=(h_Diff==xy_Diff);
+            }
+        }
+        ans+=(ok);
+    }
+    cout<<ans<<endl;
+}
+
+
+int main()
+{
+    Faster
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        solve();
+    }
+    return 0;
+}
+
