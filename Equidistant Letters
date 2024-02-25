@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+
+#define all(s) s.begin(), s.end()
+#define all_g(x) x.rbegin(), x.rend()
+#define Faster ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
+using namespace std;
+
+using ll = long long;
+const int N = 1e5 + 10;
+
+void solve()
+{
+    string s;
+    cin>>s;
+    sort(all(s));
+    cout<<s <<"\n";
+}
+
+
+int main()
+{
+    Faster
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        solve();
+    }
+    return 0;
+}
+
