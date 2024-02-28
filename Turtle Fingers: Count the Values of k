@@ -1,0 +1,71 @@
+#include<bits/stdc++.h>
+
+#define all(x) x.begin(), x.end()
+#define all_g(x) x.rbegin(), x.rend()
+#define Faster ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
+using namespace std;
+
+using ll = long long;
+const int N = 1e5 + 10;
+
+long long int gcd(long long int a, long long int b)
+{
+    if(a==b) return a;
+    return gcd(b,a%b);
+}
+
+
+void solve()
+{
+    ll a,b,l;
+    cin>>a>>b>>l;
+    ll ta = a, tb = b;
+    ll x=1, y=1;
+
+    while(a<l)
+    {
+        if(l%a==0)
+            x++;
+        else
+            break;
+
+        a=a*ta;
+    }
+    while(b<l)
+    {
+        if(l%b==0)
+            y++;
+        else
+            break;
+
+        b = b*tb;
+    }
+
+    set<ll>s;
+    for(int i=0; i<=x; i++)
+    {
+        for(int j=0; j<=y; j++)
+        {
+            ll temp = pow(ta,i)* pow(tb,j);
+            if(temp<=l && l%temp==0)
+            {
+                s.insert(l/temp);
+            }
+        }
+    }
+    cout << s.size() << "\n";
+}
+
+
+int main()
+{
+    Faster
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        solve();
+    }
+    return 0;
+}
