@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+long long find(long long n) {
+    long long pos = 1;
+    while (pos <= n) {
+        pos *= 2;
+    }
+    return pos / 2;
+}
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        long long n;
+        cin >> n;
+        long long pos_of_one = find(n);
+        cout << pos_of_one << endl;
+    }
+    return 0;
+}
