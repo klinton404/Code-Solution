@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+
+#define all(x) x.begin(), x.end()
+#define all_g(x) x.rbegin(), x.rend()
+#define Faster ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
+using namespace std;
+
+using ll = long long;
+const int N = 1e5 + 10;
+
+void solve()
+{
+    int a,b,c;
+    cin>>a>>b>>c;
+    int ans = min(a+b+c,min((a+b)*2,min((a+c)*2,(b+c)*2)));
+    cout<<ans<<"\n";
+}
+
+
+int main()
+{
+    Faster;
+    solve();
+    return 0;
+}
