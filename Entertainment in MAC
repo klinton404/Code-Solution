@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+
+#define all(x) x.begin(), x.end()
+#define all_g(x) x.rbegin(), x.rend()
+#define Faster ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
+using namespace std;
+
+using ll = long long;
+const int N = 1e5 + 10;
+
+void solve()
+{
+    ll a;
+    string s;
+
+    cin>>a>>s;
+
+    ll x=0;
+    for(int i=0; i<s.size()/2; i++)
+    {
+        if(s[i]<s[s.size()-i-1])
+        {
+            x=0;
+            break;
+        }
+        if(s[i]>s[s.size()-i-1])
+        {
+            x=1;
+            break;
+        }
+    }
+
+    if(x==0)
+        cout<<s<<"\n";
+
+    else
+    {
+        string s1=s;
+        reverse(s1.begin(),s1.end());
+        cout<<s1<<s<<"\n";
+    }
+}
+
+
+int main()
+{
+    Faster;
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        solve();
+    }
+    return 0;
+}
