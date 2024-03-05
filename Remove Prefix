@@ -1,0 +1,77 @@
+#include<bits/stdc++.h>
+
+#define all(x) x.begin(), x.end()
+#define all_g(x) x.rbegin(), x.rend()
+#define Faster ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
+using namespace std;
+
+using ll = long long;
+const int N = 1e5 + 10;
+
+/*
+void solve()
+{
+    int n;
+    cin>>n;
+    vector<int>a(n);
+    for(int i=0; i<n; i++)
+    {
+        cin>>a[i];
+    }
+    sort(all(a));
+
+    int res = 0;
+    for(int i=0; i<n; i++)
+    {
+        if(a[i]==a[i+1])
+        {
+            res++;
+        }
+    }
+    cout<<res <<"\n";
+}
+*/
+
+
+
+void solve()
+{
+    ll n;
+    cin>>n;
+    ll a[n];
+
+    map<ll,ll>mp;
+
+    ll s=0;
+    for(int i=0; i<n; i++)
+    {
+        cin>>a[i];
+    }
+
+    for(int i=n-1; i>=0; i--)
+    {
+        if(mp[a[i]]==0)
+            s++;
+        else
+            break;
+
+        mp[a[i]]++;
+    }
+    cout<<n-s<<endl;
+}
+
+
+
+int main()
+{
+    Faster;
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        solve();
+    }
+    return 0;
+}
+
