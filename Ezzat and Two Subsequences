@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+
+#define pb push_back
+#define all(x) x.begin(), x.end()
+#define Faster ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+#define yes cout<<"YES"<<"\n"
+#define no cout<<"NO"<<"\n"
+#define ll long long int
+
+using namespace std;
+const int N = 1e5 + 10;
+
+
+void solve()
+{
+    int n;
+    cin>>n;
+    ll a[n];
+    ll sum=0;
+    for(int i=0; i<n; i++)
+    {
+        cin>>a[i];
+    }
+
+    sort(a,a+n);
+    for(int i=0; i<n-1; i++)
+    {
+        sum=sum+a[i];
+    }
+    double sum2=0;
+    sum2=(double)(sum/(double)(n-1));
+    sum2=(double)(sum2+a[n-1]);
+    cout <<setprecision (10) <<sum2 <<"\n";
+}
+int main()
+{
+    Faster;
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        solve();
+    }
+    return 0;
+}
