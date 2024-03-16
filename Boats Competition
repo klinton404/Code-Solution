@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+
+#define pb push_back
+#define ll long long int
+#define no cout<<"NO"<<"\n"
+#define yes cout<<"YES"<<"\n"
+#define all(x) x.begin(), x.end()
+#define Faster ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
+
+using namespace std;
+const int N = 1e5 + 10;
+
+
+void solve()
+{
+    int n,x,k=0;
+    cin>>n;
+    int w[101]= {0};
+    for(int i=0; i<n; i++)
+    {
+        cin>>x;
+        w[x]++;
+    }
+    for(int j=1; j<101; j++)
+    {
+        int c=0;
+        for(int l=0; l<=j; l++)
+        {
+            c+=min(w[l],w[j-l]);
+            k=max(k,c/2);
+        }
+    }
+    cout<<k<<endl;
+}
+
+
+
+int main()
+{
+    Faster;
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        solve();
+    }
+    return 0;
+}
+
