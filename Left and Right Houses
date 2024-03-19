@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+
+#define pb push_back
+#define ll long long int
+#define no cout<<"NO"<<"\n"
+#define yes cout<<"YES"<<"\n"
+#define all(x) x.begin(), x.end()
+#define Faster ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
+
+using namespace std;
+const int N = 1e5 + 10;
+
+
+void solve()
+{
+    int n,r(-100);
+    string s;
+    cin>>n>>s;
+    vector<int> A(1);
+    for (char a:s) A.emplace_back(A.back()+a-'0');
+    for (int i(0); i <= n; ++i)
+    {
+        if (i-A[i]>=i/2+i%2&&A.back()-A[i]>=(n-i)/2+(n-i)%2)
+        {
+            if (abs(((double)n)/2-i)<abs(((double)n)/2-r)) r = i;
+        }
+    }
+    cout << r << endl;
+}
+
+
+
+int main()
+{
+    Faster;
+
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        solve();
+    }
+    return 0;
+}
