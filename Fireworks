@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+
+#define pb push_back
+#define ll long long int
+#define no cout<<"NO"<<"\n"
+#define yes cout<<"YES"<<"\n"
+#define all(x) x.begin(), x.end()
+#define Faster ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
+
+using namespace std;
+const int N = 1e5 + 10;
+
+
+ll t, a, b, m, res;
+
+
+
+void solve()
+{
+    cin>>a>>b>>m;
+    res=2;
+    res+=m/b;
+    res+=m/a;
+    cout<<res<<'\n';
+}
+
+
+
+int main()
+{
+    Faster;
+
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        solve();
+    }
+    return 0;
+}
+
