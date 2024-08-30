@@ -1,0 +1,109 @@
+#include <iostream>
+#include <bits/stdc++.h>
+#define ll int
+#define MOD 1000000007
+#define ull unsigned long long
+#define mxx 1e18 - 1
+using namespace std;
+
+ll gcd(ll a, ll b)
+{
+    return b == 0 ? a : gcd(b, a % b);
+}
+
+ll lcm(ll a, ll b)
+{
+    return (a / gcd(a, b)) * b;
+}
+
+ll getAns(ll x, ll y, string &s, map<string, vector<ll>> &mp)
+{
+    ll ans = 1e7;
+
+    ll ind = lower_bound(mp[s].begin(), mp[s].end(), x) - mp[s].begin();
+    ll sz = mp[s].size();
+    for (int i = max(ind - 1, 0); i < min(ind + 1, sz); i++)
+    {
+        ll exactIndex = mp[s][i];
+        if (exactIndex <= y && exactIndex >= x)
+        {
+            ans = min(ans, y - x);
+        }
+        else
+        {
+            ll totalDis = abs(x - exactIndex) + abs(y - exactIndex);
+            ans = min(ans, totalDis);
+        }
+    }
+    return ans;
+}
+
+void solve()
+{
+    ll n, q;
+    cin >> n >> q;
+    vector<string> v;
+    map<string, vector<ll>> mp;
+    for (ll i = 0; i < n; i++)
+    {
+        string s;
+        cin >> s;
+        v.push_back(s);
+        mp[s].push_back(i);
+    }
+
+    while (q--)
+    {
+        ll x, y;
+        cin >> x >> y;
+        x--;
+        y--;
+
+        if (x > y)
+        {
+            swap(x, y);
+        }
+
+        if (v[x][0] == v[y][0] || v[x][0] == v[y][1] || v[x][1] == v[y][0] || v[x][1] == v[y][1])
+        {
+            cout << (y - x) << endl;
+            continue;
+        }
+
+        ll ans = 1e7;
+
+        for (int i = 0; i < v[x].size(); i++)
+        {
+
+            for (int j = 0; j < v[y].size(); j++)
+            {
+                string s = "";
+                s.push_back(v[x][i]);
+                s.push_back(v[y][j]);
+                sort(s.begin(), s.end());
+                ans = min(ans, getAns(x, y, s, mp));
+            }
+        }
+
+        if (ans <= 1e6)
+        {
+            cout << ans << endl;
+        }
+        else
+        {
+            cout << -1 << endl;
+        }
+    }
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    ll tt;
+    cin >> tt;
+    while (tt--)
+        solve();
+    return 0;
+}
