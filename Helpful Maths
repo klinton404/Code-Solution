@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+
+#define pb push_back
+#define ll long long int
+#define no cout<<"NO"<<"\n"
+#define yes cout<<"YES"<<"\n"
+#define all(x) x.begin(), x.end()
+#define Faster ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
+
+using namespace std;
+const int N = 1e5 + 10;
+
+
+
+void solve()
+{
+    string s;
+    cin >> s;
+
+    vector<char> numbers;
+
+    for(char c : s)
+    {
+        if (c != '+')
+        {
+            numbers.pb(c);
+        }
+    }
+
+    sort(all(numbers));
+
+    for(size_t i=0; i<numbers.size(); i++)
+    {
+        if (i>0)
+        {
+            cout << "+";
+        }
+        cout << numbers[i];
+    }
+    cout << endl;
+}
+
+
+int main()
+{
+    solve();
+    return 0;
+}
