@@ -1,0 +1,34 @@
+#include <iostream>
+#include <cctype>
+using namespace std;
+
+bool isVowel(char c)
+{
+    char vowels[] = {'a', 'o', 'y', 'e', 'u', 'i'};
+    c = tolower(c);
+    for (char v : vowels)
+    {
+        if (c == v) return true;
+    }
+    return false;
+}
+
+int main()
+{
+    string s;
+    cin >> s;
+
+    string result = "";
+    for(char c : s)
+    {
+        if(!isVowel(c))
+        {
+            result += '.';
+            result += tolower(c);
+        }
+    }
+
+    cout << result << endl;
+    return 0;
+}
+
